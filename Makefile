@@ -1,0 +1,53 @@
+COMPILER = g++
+CFLAGS = -O3 -std=c++17 -static  -g
+
+PRE_CFLAGS = ${CFLAGS} -c
+TARGET = DivSampCA
+
+SRC_DIR = src
+
+BIN_DIR = bin
+
+CDCLCASAMPLER = cdclcasampler
+CDCLCASAMPLER_TARGET = ${SRC_DIR}/${CDCLCASAMPLER}.o
+CDCLCASAMPLER_CPP_FILE = ${SRC_DIR}/${CDCLCASAMPLER}.cpp
+CDCLCASAMPLER_H_FILE = ${SRC_DIR}/${CDCLCASAMPLER}.h
+CDCLCASAMPLER_SOURCE_FILES = ${CDCLCASAMPLER_H_FILE} ${CDCLCASAMPLER_CPP_FILE}
+
+EXT_MINISAT_TARGET = minisat_ext/Solver.o minisat_ext/Ext.o minisat_ext/BlackBoxSolver.o
+EXT_MINISAT_SOURCE_FILES = minisat_ext/Solver.cc minisat_ext/Solver.h minisat_ext/Ext.h minisat_ext/Ext.cc minisat_ext/BlackBoxSolver.h minisat_ext/BlackBoxSolver.cc
+
+TARGET_FILES =	${EXT_MINISAT_TARGET} \
+				${CDCLCASAMPLER_TARGET} \
+				
+MAIN_SOURCE_FILE = ${SRC_DIR}/main.cpp
+
+UPDATE = update
+CLEAN = clean
+CLEANUP = cleanup
+
+all: ${TARGET_FILES} ${TARGET} ${UPDATE} ${CLEAN}
+
+${CDCLCASAMPLER_TARGET}: ${CDCLCASAMPLER_SOURCE_FILES}
+	${COMPILER} ${PRE_CFLAGS} ${CDCLCASAMPLER_CPP_FILE} -o ${CDCLCASAMPLER_TARGET}
+
+${EXT_MINISAT_TARGET}: ${EXT_MINISAT_SOURCE_FILES}
+	cd minisat_ext; make -f Makefile extminisat; cd ..
+
+${TARGET}: ${MAIN_SOURCE_FILE} ${TARGET_FILES}
+	${COMPILER} ${CFLAGS} ${MAIN_SOURCE_FILE} ${TARGET_FILES} -o ${TARGET}
+
+${UPDATE}:
+	chmod +x -R ${BIN_DIR}/
+
+${CLEAN}:
+	rm -f *~
+	rm -f ${SRC_DIR}/*.o
+	rm -f ${SRC_DIR}/*~
+	rm -f minisat/utils/*.or
+	rm -f minisat/utils/*.o
+	rm -f ${EXT_MINISAT_TARGET}
+	rm -f minisat_ext/depend.mk
+
+${CLEANUP}: ${CLEAN}
+	rm -f ${TARGET}
