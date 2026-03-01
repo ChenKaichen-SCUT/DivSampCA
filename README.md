@@ -8,6 +8,7 @@ git clone https://github.com/ChenKaichen-SCUT/DivSampCA-master.git
 ## Installation for Building *DivSampCA*
 
 cd DivSampCA-master/
+
 make
 
 ## Instructions for Running *DivSampCA*
