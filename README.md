@@ -30,7 +30,7 @@ For the optional parameters, we list them as follows.
 | `-output_testcase_path` | string | `./[INPUT_CNF_NAME]_testcase_set.txt` | path to which the generated PCA is saved |
 | `-seed` | integer | 1 | random seed | 
 | `-lambda` | positive integer | 150 | number of candidates per round | 
-| `-lambda` |positive integer | 150 |  threshold for transitioning from sampling phase to full coverage phase |
+| `-eta` |positive integer | 150 |  threshold for transitioning from sampling phase to full coverage phase |
 
 ## 5. Example 
 
