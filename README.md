@@ -36,7 +36,7 @@ For the optional parameters, we list them as follows.
 ## 5. Example 
 
 ```
-./DivSampCA -input_cnf_path Benchmarks/CNF_benchmarks/aaed2000.cnf -seed 100 -lambda 100 -lambda 100
+./DivSampCA -input_cnf_path Benchmarks/CNF_benchmarks/aaed2000.cnf -seed 100 -lambda 100 -eta 100
 ```
 
 ## 6. License
