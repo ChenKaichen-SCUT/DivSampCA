@@ -10,7 +10,7 @@ This repository contains the implementation of our paper "*A Tuple-Oriented Samp
 
 ## 3.Installation for Building *DivSampCA*
 
-git clone https://github.com/ChenKaichen-SCUT/DivSampCA-master.git
+git clone https://github.com/ChenKaichen-SCUT/DivSampCA.git
 
 cd DivSampCA-master/
 
