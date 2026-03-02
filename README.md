@@ -8,8 +8,6 @@ This repository contains the implementation of our paper "*A Tuple-Oriented Samp
 | zlib1g-dev       | 1.2.8+          | `sudo apt install zlib1g-dev`         |
 | GNU Make         | 3.81+           | `sudo apt install make`               |
 
-
-
 ## 3.Installation for Building *DivSampCA*
 
 git clone https://github.com/ChenKaichen-SCUT/DivSampCA-master.git
