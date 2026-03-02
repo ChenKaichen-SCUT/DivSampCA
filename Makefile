@@ -1,6 +1,5 @@
 COMPILER = g++
-CFLAGS = -O3 -std=c++17 -static  -g
-
+CFLAGS = -O3 -std=c++17 -static -g -mavx2
 PRE_CFLAGS = ${CFLAGS} -c
 TARGET = DivSampCA
 

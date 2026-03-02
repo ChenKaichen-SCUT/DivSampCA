@@ -16,7 +16,7 @@ public:
     void add_assumption(int lit);
     void clear_assumptions();
     bool solve();
-    bool solve1(int nvar, const vector<vector<int> >& clauses);
+    bool solveLimited();
     void get_solution(vector<int>& tc);
     void* internal_solver;
     vector<int> assumptions;

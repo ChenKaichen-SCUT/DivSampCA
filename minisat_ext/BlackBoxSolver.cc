@@ -59,36 +59,15 @@ bool Solver::solve(){
     return res;
 }
 
-bool Solver::solve1(int nvar, const vector<vector<int> >& clauses){
-    
-    Minisat::Solver* sv =  new Minisat::Solver(true, 1);
-   
-    Minisat::vec<Minisat::Lit> lits;
-    for (const vector<int>& cl: clauses){
-        lits.clear();
-        for (int rawvar: cl){
-            int var = abs(rawvar) - 1;
-            while (var >= sv->nVars()) sv->newVar();
-            lits.push(Minisat::mkLit(var, rawvar < 0));
-        }
-        sv->addClause_(lits);
-    }
-
-    while (nvar > sv->nVars()){
-        sv->newVar();
-    }
-
-    sv->user_pol.growTo(sv->nVars(), (Minisat::lbool((uint8_t)2)));
-    if (!sv->simplify()) return false;
-
+bool Solver::solveLimited()
+{
+    Minisat::Solver* sv = (Minisat::Solver*)internal_solver;
     Minisat::vec<Minisat::Lit> assu;
-    for (int x: assumptions){
+    for (int x : assumptions) {
         assu.push(Minisat::mkLit(abs(x) - 1, x < 0));
     }
-
-    bool res = sv->solve(assu);
-    delete sv;
-    return res;
+    Minisat::lbool res = sv->solveLimited(assu);
+    return res == Minisat::lbool((uint8_t)0);
 }
 
 void Solver::get_solution(vector<int>& tc){
