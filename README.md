@@ -1,5 +1,5 @@
 ## 1. Introduction
-This repository contains the implementation of our paper "*A Tuple-Oriented Sampling Method for Generating Small Pairwise Covering Arrays in Configurable Software Systems*".
+This repository contains the implementation of the paper "*A Tuple-Oriented Sampling Method for Generating Small Pairwise Covering Arrays in Configurable Software Systems*".
 
 ## 2. Software Requirements
 | Dependency       | Minimum Version | Installation Command (Ubuntu/Debian) |
