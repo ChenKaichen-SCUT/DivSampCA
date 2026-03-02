@@ -13,7 +13,6 @@ This repository contains the implementation of our paper "*A Tuple-Oriented Samp
 git clone https://github.com/ChenKaichen-SCUT/DivSampCA.git
 
 cd DivSampCA-master/
-
 make
 
 ## 4. Instructions for Running *DivSampCA*
