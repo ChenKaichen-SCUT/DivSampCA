@@ -39,4 +39,4 @@ For the optional parameters, we list them as follows.
 
 ## 6. License
 
-*DivSampCA* uses the GPL-3.0 license. Check [LICENSE.md](LICENSE.md) for more information. 
+*DivSampCA* uses the GPL-3.0 license. Check [LICENSE](LICENSE) for more information. 
